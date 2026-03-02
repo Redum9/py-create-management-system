@@ -47,7 +47,7 @@ def read_groups_information() -> set[str]:
         groups_list = pickle.load(f)
     unique_specialties = set()
     for group in groups_list:
-        unique_specialties.add(group.speciality.name)
+        unique_specialties.add(group.specialty.name)
     return unique_specialties
 
 
