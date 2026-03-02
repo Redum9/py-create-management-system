@@ -7,6 +7,7 @@ class Speciality:
     name : str
     number : int
 
+
 @dataclasses.dataclass
 class Student:
     first_name : str
@@ -24,7 +25,8 @@ class Group:
     course : int
     students : list[Student]
 
-def write_groups_information(groups_list):
+
+def write_groups_information(groups_list) -> int:
     with open("groups.pickle", "wb") as f:
         pickle.dump(groups_list, f)
         
@@ -35,13 +37,14 @@ def write_groups_information(groups_list):
     return max(counts) if counts else 0
 
 
-def write_students_information(students):
+def write_students_information(students) -> int:
     with open("students.pickle", "wb") as f:
         pickle.dump(students, f)
 
     return len(students)
 
-def read_groups_information():
+
+def read_groups_information() -> set[str]:
     with open("groups.pickle", "rb") as f:
         groups_list = pickle.load(f)
     
@@ -51,7 +54,8 @@ def read_groups_information():
 
     return unique_specialties
 
-def read_students_information():
+
+def read_students_information() -> list[Student]:
     with open("students.pickle", "rb") as f:
         students_list = pickle.load(f)
 
